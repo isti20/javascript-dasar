@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>For of</title>
+  </head>
+  <body>
+    <script>
+      // for of di array
+      const names = ["Eko", "Kurniawan", "Khannedy"];
+      for (const name of names) {
+        document.writeln(`<p>${name}</p>`);
+      }
+
+      // for of di string
+      const fullName = "Kurniawan";
+      for (const character of fullName) {
+        document.writeln(`<p>${character}</p>`);
+      }
+
+      // for of di object
+      const person = {
+          firstName: "Eko",
+          lastName: "Khannedy"
+      };
+      for(const name of person){
+          console.info(`<p>${name}</p>`); // TypeError: person is not iterable
+      }
+    </script>
+  </body>
+</html>
