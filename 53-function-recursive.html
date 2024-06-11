@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Function recursive</title>
+  </head>
+  <body>
+    <script>
+      // factorial loop
+      function factorial(value) {
+        let result = 1;
+        for (let i = 1; i <= value; i++) {
+          result *= i;
+        }
+        return result;
+      }
+
+      document.writeln(factorial(5));
+      // result = 1*1
+      // result = 1*2
+      // result = 2*3
+      // result = 6*4
+      // result = 24*5
+
+      // factorial recursive
+      function factorialRecursive(value) {
+        if (value === 1) {
+          return 1;
+        } else {
+          return value * factorialRecursive(value - 1);
+        }
+      }
+
+      document.writeln(factorialRecursive(5));
+      // 5 * factorialRecursive(4)
+      // 5 * 4 * factorialRecursive(3)
+      // 5 * 4 * 3 * factorialRecursive(2)
+      // 5 * 4 * 3 * 2 * factorialRecursive(1)
+      // 5 * 4 * 3 * 2 * 1
+    </script>
+  </body>
+</html>
