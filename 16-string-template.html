@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Console</title>
+  </head>
+  <body>
+    <script>
+      // string template
+      const name = "Eko Kurniawan Khannedy";
+      const firstName = "Eko";
+      const middleName = "Kurniawan";
+      const lastName = "Khannedy";
+
+      // mengambil variabel
+      const template = `Name : ${firstName} ${middleName} ${lastName}`;
+      const lama = "Name : " + firstName + " " + middleName + " " + lastName;
+      document.writeln(template);
+
+      // expression di string template
+      const nilai = 50;
+      const template2 = `Name : ${name}, Lulus : ${nilai > 70}`;
+      document.writeln(template2);
+
+      // multiline string
+      const multiline = `Nama Saya Eko,
+Sekarang Kerja,
+Sering Juga Bikin KOnten Programming,
+Kalo lagi males, paling tidur`;
+
+      document.writeln("<pre>");
+      document.writeln(multiline);
+      document.writeln("</pre>");
+    </script>
+  </body>
+</html>
