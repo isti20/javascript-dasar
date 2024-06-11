@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Optional chaining</title>
+  </head>
+  <body>
+    <script>
+      // Error mengakses properti nullish
+      let car = {};
+      
+      // console.info(car.brand.country);
+      // TypeError: Cannot read properties of undefined (reading 'country')
+
+      // mulai dari kode ini tidak akan dieksekusi jika kode di atas tidak di komen karena error
+      document.writeln(`SUKSES`);
+
+      // pengecekan menggunakan if
+      let user = {};
+
+      let name;
+      if (user.email !== undefined && user.email !== null) {
+        name = user.email.fullname;
+      }
+
+      document.writeln(name); // undefined
+
+      // menggunakan optional chaining
+      let orang = {};
+
+      document.writeln(orang?.alamat?.negara); // undefinded
+
+      // menggunakan optional chaining
+      const person = {
+        address: {
+          country: "Indonesia",
+        },
+      };
+
+      let country = person?.address?.country;
+
+      document.writeln(`<p>${country}</p>`); // Indonesia
+    </script>
+  </body>
+</html>
