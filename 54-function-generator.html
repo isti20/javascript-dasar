@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Function generator</title>
+  </head>
+  <body>
+    <script>
+      // function generator sederhana
+      function* createNames() {
+        yield "Eko";
+        yield "Kurniawan";
+        yield "Khannedy";
+      }
+
+      const names = createNames();
+
+      // data generator hanya bisa di iterasi
+      for (const name of names) {
+        console.info(name); // Eko, Kurniawan, Khannedy
+      }
+
+      // tidak bisa di akses menggunakan index dan diubah datanya
+      console.info(names[0]); // undefined
+
+      // lazy
+      function* buatGanjil(value) {
+        for (let i = 1; i <= value; i++) {
+          if (i % 2 === 1) {
+            document.writeln(`<p>Yield ${i}</p>`);
+            yield i;
+          }
+        }
+      }
+
+      const numbers = buatGanjil(10);
+      for (const number of numbers) {
+          document.writeln(`${number}`);
+      }
+
+      // eager
+      function buatGanjilArray(value) {
+        const result = [];
+        for (let i = 1; i <= value; i++) {
+          if (i % 2 === 1) {
+            document.writeln(`<p>Perulangan ke- ${i}</p>`);
+            result.push(i);
+          }
+        }
+        return result;
+      }
+
+      const bilangan = buatGanjilArray(15);
+      for (const angka of bilangan) {
+          document.writeln(`<p>${angka}</p>`);
+      }
+
+      // lazy evaluation
+      function* buatGenap(value) {
+        for (let i = 1; i <= value; i++) {
+          if (i % 2 === 0) {
+            document.writeln(`<p>Angka genap ${i}</p>`);
+            yield i;
+          }
+        }
+      }
+
+      const bilanganGenap = buatGenap(10);
+      // Jika datanya belum diambil, yield selanjutnya tidak akan di eksekusi
+      document.writeln(bilanganGenap.next().value);
+      document.writeln(bilanganGenap.next().value);
+      document.writeln(bilanganGenap.next().value);
+    </script>
+  </body>
+</html>
