@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>With statement</title>
+  </head>
+  <body>
+    <script>
+      const person = {
+        firstName: "Eko",
+        middleName: "Kurniawan",
+        lastName: "Khannedy",
+      };
+
+      // tanpa with statement
+      document.writeln(person.firstName);
+      document.writeln("</br>");
+      document.writeln(person.middleName);
+      document.writeln("</br>");
+      document.writeln(person.lastName);
+      document.writeln("</br>");
+
+      const firstName = "Budi";
+      const lastName = "Nugraha";
+
+      // dengan with statement (tidak direkomendasikan karena ambigu)
+      with (person) {
+        document.writeln(firstName); // niatnya ingin Budi
+        document.writeln("</br>");
+        document.writeln(middleName);
+        document.writeln("</br>");
+        document.writeln(lastName); // niatnya ingin Nugraha
+      }
+    </script>
+  </body>
+</html>
