@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tipe data object</title>
+  </head>
+  <body>
+    <script>
+      // membuat object kosong
+      const mobil = {};
+
+      // menambah atau mengubah properti di object
+      mobil["merk"] = "Avanza";
+      mobil["warna"] = "Merah";
+      mobil["harga"] = 90000000;
+
+      console.table(mobil);
+
+      // menghapus properti
+      delete mobil["harga"];
+
+      console.table(mobil);
+
+      // membuat object dengan properties
+      const orang = {
+        "nama lengkap": "Eko Kurniawan",
+        alamat: "Indonesia",
+        umur: 30,
+      };
+
+      // mengakses properti object
+      console.info(`Nama : ${orang["nama lengkap"]}`); // Nama : Eko Kurniawan
+      console.info(`Alamat : ${orang.alamat}`); // Alamat : Indonesia
+      console.info(`Umur : ${orang.umur}`); // Umur : 30
+
+      console.table(orang);
+    </script>
+  </body>
+</html>
