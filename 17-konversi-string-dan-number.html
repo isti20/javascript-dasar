@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Konversi string dan number</title>
+  </head>
+  <body>
+    <script>
+      // masalah tanpa konversi
+      const angka1 = "1";
+      const angka2 = 1;
+      const sumAngka = angka1 + angka2;
+
+      document.writeln(`<p>${sumAngka}</p>`); // 11
+
+      // konversi string ke number
+      const value1 = parseInt("1");
+      const value2 = 1;
+      const sum = value1 + value2;
+
+      document.writeln(`<p>${sum}</p>`); // 2
+
+      // Konversi string ke number
+      document.writeln(`<p>${parseInt("1.9")}</p>`); // 1
+      document.writeln(`<p>${parseFloat("1.1")}</p>`); // 1.1
+      document.writeln(`<p>${Number("1.1")}</p>`); // 1.1
+
+      // NaN
+      document.writeln(`<p>${parseInt("salah")}</p>`); // NaN
+      document.writeln(`<p>${parseFloat("eko")}</p>`); // NaN
+      document.writeln(`<p>${Number("salah")}</p>`); // NaN
+
+      // Number() tidak akan mentolerir kesalahan pada data
+      document.writeln(`<p>${parseInt("1salah")}</p>`); // 1
+      document.writeln(`<p>${parseFloat("1.1eko")}</p>`); // 1.1
+      document.writeln(`<p>${Number("1salah")}</p>`); // NaN
+      document.writeln(`<p>${Number("1.1eko")}</p>`); // NaN
+
+      // Operasi pada NaN
+      const first = Number("salah");
+      const totalNumber = first + 100;
+      document.writeln(`<p>${totalNumber}</p>`); // NaN
+
+      // isNaN(number) untuk mengecek apakah sebuah number itu NaN atau bukan
+      document.writeln(`<p>${isNaN(first)}</p>`); // true
+      document.writeln(`<p>${isNaN(100)}</p>`); // false
+      document.writeln(`<p>${isNaN(NaN)}</p>`); // true
+
+      // konversi number ke string
+      const a = 1;
+      const b = 1;
+      const total = a.toString() + b.toString();
+      document.writeln(`<p>${total}</p>`); // 11
+    </script>
+  </body>
+</html>
