@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Object method</title>
+  </head>
+  <body>
+    <script>
+      // membuat object dengan method
+      const person = {
+          name: "Eko",
+          sayHello: function (name){
+              console.info(`Hello ${name}`);
+          }
+      };
+
+      person.sayHello("Budi"); // Hello Budi
+
+      // menambah method ke object
+      const user = {
+        name: "Budi",
+      };
+
+      user.sayBye = function (name) {
+        console.info(`Good bye ${name}`);
+      };
+
+      user.sayBye("Kurniawan"); // Good bye Kurniawan
+    </script>
+  </body>
+</html>
