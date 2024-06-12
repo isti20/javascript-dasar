@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Destructuring</title>
+  </head>
+  <body>
+    <script>
+      {
+        // mengambil data di array
+        const names = ["Eko", "Kurniawan", "Khannedy"];
+        const firstName = names[0];
+        const middleName = names[1];
+        const lastName = names[2];
+
+        console.log(firstName); // Eko
+        console.log(middleName); // Kurniawan
+        console.log(lastName); // Khannedy
+      }
+
+      {
+        // destructuring array
+        const names = ["Eko", "Kurniawan", "Khannedy", "Budi", "Joko"];
+        let [firstName, middleName, lastName, ...others] = names;
+
+        console.log(firstName); // Eko
+        console.log(middleName); // Kurniawan
+        console.log(lastName); // Khannedy
+        console.log(others); // ['Budi', 'Joko']
+      }
+
+      {
+        // mengambil data di object
+        const person = {
+          firstName: "Eko",
+          lastName: "Khannedy",
+          address: {
+            street: "Jalan Belum Ada",
+            city: "Jakarta",
+            country: "Indonesia",
+          },
+          hobby: "Game",
+          channel: "Programmer Zaman Now",
+        };
+
+        const firstName = person.firstName;
+        const lastName = person.lastName;
+
+        console.log(firstName); // Eko
+        console.log(lastName); // Khannedy
+      }
+
+      {
+        // destructuring object
+        const person = {
+          firstName: "Budi",
+          lastName: "Nugraha",
+          address: {
+            street: "Jalan Kenangan",
+            city: "Bekasi",
+            country: "Indonesia",
+          },
+          hobby: "Bermusik",
+          channel: "Tutorial bermain gitar",
+        };
+
+        const { firstName, lastName, address, ...others } = person;
+
+        console.log(firstName); // Budi
+        console.log(lastName); // Nugraha
+        console.log(address); // {street: 'Jalan Kenangan', city: 'Bekasi', country: 'Indonesia'}
+        console.log(others); // {hobby: 'Bermusik', channel: 'Tutorial bermain gitar'}
+      }
+
+      {
+        // destructuring nested object
+        const person = {
+          firstName: "Susanto",
+          lastName: "Irawan",
+          address: {
+            street: "Jalan Pahlawan",
+            city: "Bandung",
+            country: "Indonesia",
+          },
+          hobby: "Menggambar",
+          channel: "Tutorial menggambar Tiga Dimensi",
+        };
+
+        let {
+          firstName,
+          lastName,
+          address: { city, street, country },
+          ...others
+        } = person;
+
+        console.log(firstName); // Susanto
+        console.log(lastName); // Irawan
+        console.log(city); // Bandung
+        console.log(street); // Jalan Pahalawan
+        console.log(country); // Indonesia
+        console.log(others); // {hobby: 'Menggambar', channel: 'Tutorial menggambar Tiga Dimensi'}
+      }
+
+      {
+        // destructuring di function parameter (1)
+        function displayPerson({ firstName, middleName, lastName }) {
+          console.log(firstName);
+          console.log(middleName);
+          console.log(lastName);
+        }
+
+        const person = {
+          firstName: "Eko",
+          middleName: "Kurniawan",
+          lastName: "Khannedy",
+        };
+
+        displayPerson(person);
+        // Eko
+        // Kurniawan
+        // Khannedy
+      }
+
+      {
+        // destructuring di function parameter (2)
+        function sum([first, second]) {
+          return first + second;
+        }
+
+        console.info(sum([1, 1])); // 2
+        console.info(sum([10, 10])); // 20
+      }
+
+      {
+        // default value destructuring array
+        const names = ["Eko", "Budi"];
+        const [firstName, middleName = "Kurniawan", lastName = "Khannedy"] = names;
+
+        console.log(firstName); // Eko
+        console.log(middleName); // Budi
+        console.log(lastName); // Khannedy
+      }
+
+      {
+        // default value destructuring object
+        const person = {
+          firstName: "Eko",
+        };
+
+        let { firstName, middleName = "Kurniawan", lastName } = person;
+        console.log(firstName); // Eko
+        console.log(middleName); // Kurniawan
+        console.log(lastName); // undefined
+      }
+
+      {
+        // menggunakan nama variabel lain
+        const person = {
+          firstName: "Eko",
+          middleName: "Budi",
+          lastName: "Khannedy",
+        };
+
+        let {
+          firstName: namaDepan,
+          middleName: namaTengah = "Kurniawan",
+          lastName: namaBelakang,
+        } = person;
+
+        console.log(namaDepan); // Eko
+        console.log(namaTengah); // Budi
+        console.log(namaBelakang); // Khannedy
+      }
+    </script>
+  </body>
+</html>
