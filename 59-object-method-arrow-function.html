@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Object method arrow function</title>
+  </head>
+  <body>
+    <script>
+      // arrow function di object method
+      const person = {
+        name: "Eko",
+        sayHello: (name) => {
+          console.info(this); // window
+          console.info(`Hello ${name}, My Name is ${this.name}`);
+        },
+      };
+
+      person.sayHello("Budi"); // Hello Budi, My Name is
+    </script>
+  </body>
+</html>
