@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Getter dan Setter</title>
+  </head>
+  <body>
+    <script>
+      // Tanpa menggunakan kata kunci get
+      const person = {
+        firstName: "Eko",
+        lastName: "Khannedy",
+        fullName: function () {
+          return `${this.firstName} ${this.lastName}`;
+        },
+      };
+
+      console.info(person.fullName()); // Eko Khannedy
+
+      // dengan menggunakan kata kunci get
+      const user = {
+        firstName: "Eko",
+        lastName: "Khannedy",
+        get fullName() {
+          return `${this.firstName} ${this.lastName}`;
+        },
+      };
+
+      // cara mengakses function fullName() menjadi seperti mengakses properti
+      console.info(user.fullName); // Eko Khannedy
+
+      // menggunakan setter untuk mengubah nilai
+      const human = {
+        firstName: "Eko",
+        lastName: "Khannedy",
+        get fullName() {
+          return `${this.firstName} ${this.lastName}`;
+        },
+        set fullName(value) {
+          const array = value.split(" ");
+          this.firstName = array[0];
+          this.lastName = array[1];
+        },
+      };
+
+      human.fullName = "Budi Nugraha";
+      console.info(human); // {firstName: 'Budi', lastName: 'Nugraha'}
+
+      human.fullName = "Joko Morro";
+      console.info(human); // {firstName: 'Joko', lastName: 'Morro'}
+
+      human.fullName = "Najwa Shihab";
+      console.info(human); // {firstName: 'Najwa', lastName: 'Shihab'}
+    </script>
+  </body>
+</html>
